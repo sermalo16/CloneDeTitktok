@@ -1,0 +1,47 @@
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { AccountScreen, ChangeDescriptionScreen, ChangeInstagram, ChangeNameScreen, ChangeWebSiteScreen, SettingsScreen } from "../../screen/Account";
+import { screen } from "../../utils";
+
+const Stack = createNativeStackNavigator();
+
+export function AccountStack(){
+
+    return (
+        <Stack.Navigator>
+            <Stack.Screen
+            name={screen.account.account}
+            component={AccountScreen}
+            options={{title: "" }}/>
+
+            <Stack.Group>
+                <Stack.Screen
+                name={screen.account.settings}
+                component={SettingsScreen}
+                options={{title: "Ajustes" }}/>
+
+                <Stack.Screen
+                name={screen.account.changeName}
+                component={ChangeNameScreen}
+                options={{title: "Nombre" }}/>
+
+                <Stack.Screen
+                name={screen.account.changeDescription}
+                component={ChangeDescriptionScreen}
+                options={{title: "Descripcion corta" }}/>
+
+                <Stack.Screen
+                name={screen.account.changeWebsite}
+                component={ChangeWebSiteScreen}
+                options={{title: "Sitio Web" }}/>
+
+                <Stack.Screen
+                name={screen.account.changeInstagram}
+                component={ChangeInstagram}
+                options={{title: "Instagram" }}/>
+
+
+            </Stack.Group>
+
+        </Stack.Navigator>
+    );
+}
